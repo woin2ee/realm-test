@@ -26,20 +26,20 @@ class ViewController: UIViewController {
         
         print(realm.configuration.fileURL!)
         
-        self.items = fetchItems()
+        fetchItems()
     }
     
     @IBAction func clickAddButton(_ sender: Any) {
         try! realm.write {
             realm.add(Item(content: "Content"))
         }
-        self.items = fetchItems()
+        fetchItems()
         reloadTable()
     }
     
-    func fetchItems() -> [Item] {
+    func fetchItems() {
         let items = realm.objects(Item.self)
-        return items.reversed()
+        self.items = items.map { $0 }
     }
     
     func reloadTable() {
