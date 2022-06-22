@@ -85,11 +85,11 @@
 				E8A23653286342AF00E0258A /* AppDelegate.swift */,
 				E8A23655286342AF00E0258A /* SceneDelegate.swift */,
 				E8A23657286342AF00E0258A /* ViewController.swift */,
+				E8A2366728634AF200E0258A /* Item.swift */,
 				E8A23659286342AF00E0258A /* Main.storyboard */,
 				E8A2365C286342B100E0258A /* Assets.xcassets */,
 				E8A2365E286342B100E0258A /* LaunchScreen.storyboard */,
 				E8A23661286342B100E0258A /* Info.plist */,
-				E8A2366728634AF200E0258A /* Item.swift */,
 			);
 			path = RealmTest;
 			sourceTree = "<group>";
