@@ -6,14 +6,65 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.dataSource = self
+            tableView.delegate = self
+        }
+    }
+    
+    let realm = try! Realm()
+    
+    var items: [Item] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        print(realm.configuration.fileURL!)
+        
+        self.items = fetchItems()
     }
-
-
+    
+    @IBAction func clickAddButton(_ sender: Any) {
+        try! realm.write {
+            realm.add(Item(content: "Content"))
+        }
+        self.items = fetchItems()
+        reloadTable()
+    }
+    
+    func fetchItems() -> [Item] {
+        let items = realm.objects(Item.self)
+        return items.reversed()
+    }
+    
+    func reloadTable() {
+        tableView.reloadData()
+    }
 }
 
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        cell.textLabel?.text = items[indexPath.row].content
+        return cell
+    }
+}
+
+final class Item: Object {
+    @Persisted(primaryKey: true) var id: ObjectId
+    @Persisted var content: String
+    
+    convenience init(content: String) {
+        self.init()
+        self.content = content
+    }
+}
