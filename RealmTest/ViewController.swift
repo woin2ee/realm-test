@@ -17,49 +17,46 @@ class ViewController: UIViewController {
         }
     }
     
-    let realm = try! Realm()
-    var token: NotificationToken?
+    private var realmStorage: RealmStorage = RealmStorage()
+    private var token: NotificationToken?
     
-    var items: [Item] = []
+    private var items: [Item] = []
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(realm.configuration.fileURL!)
-        
-        observeItems()
+        bindItems()
     }
     
-    @IBAction func clickAddButton(_ sender: Any) {
-        try! realm.write {
-            realm.add(Item(content: "Content"))
-        }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        invalidateToken()
     }
     
-    func observeItems() {
-        let items = realm.objects(Item.self)
-        
-        token = items.observe { changes in
-            switch changes {
-            case .initial(let items):
-                self.reloadTable(to: items)
-            case .update(let items, let deletions, let insertions, let modifications):
-                self.reloadTable(to: items)
-                
-                print("Deleted indices: ", deletions)
-                print("Inserted indices: ", insertions)
-                print("Modified modifications: ", modifications)
-            case .error(let error):
-                fatalError(error.localizedDescription)
-            }
-        }
+    // MARK: - Private
+    
+    private func bindItems() {
+        self.token = realmStorage.bindTo(behavior: reloadTable(to:))
     }
     
-    func reloadTable(to items: Results<Item>) {
+    private func reloadTable(to items: Results<Item>) {
         self.items = items.map { $0 }
         tableView.reloadData()
     }
+    
+    private func invalidateToken() {
+        self.token?.invalidate()
+    }
+    
+    // MARK: - User Interaction
+    
+    @IBAction private func clickAddButton(_ sender: Any) {
+        realmStorage.save(item: Item(content: "Content"))
+    }
 }
+
+// MARK: - UITableViewDataSource, UITableViewDelegate
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

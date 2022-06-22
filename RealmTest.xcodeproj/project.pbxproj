@@ -15,6 +15,7 @@
 		E8A2365D286342B100E0258A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8A2365C286342B100E0258A /* Assets.xcassets */; };
 		E8A23660286342B100E0258A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8A2365E286342B100E0258A /* LaunchScreen.storyboard */; };
 		E8A2366828634AF200E0258A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A2366728634AF200E0258A /* Item.swift */; };
+		E8A2366A28634EC900E0258A /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A2366928634EC900E0258A /* RealmStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E8A2365F286342B100E0258A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8A23661286342B100E0258A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8A2366728634AF200E0258A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		E8A2366928634EC900E0258A /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,13 +87,30 @@
 				E8A23653286342AF00E0258A /* AppDelegate.swift */,
 				E8A23655286342AF00E0258A /* SceneDelegate.swift */,
 				E8A23657286342AF00E0258A /* ViewController.swift */,
-				E8A2366728634AF200E0258A /* Item.swift */,
+				E8A2366C2863547C00E0258A /* PersistentStorage */,
+				E8A2366B2863547100E0258A /* Entity */,
 				E8A23659286342AF00E0258A /* Main.storyboard */,
 				E8A2365C286342B100E0258A /* Assets.xcassets */,
 				E8A2365E286342B100E0258A /* LaunchScreen.storyboard */,
 				E8A23661286342B100E0258A /* Info.plist */,
 			);
 			path = RealmTest;
+			sourceTree = "<group>";
+		};
+		E8A2366B2863547100E0258A /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E8A2366728634AF200E0258A /* Item.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		E8A2366C2863547C00E0258A /* PersistentStorage */ = {
+			isa = PBXGroup;
+			children = (
+				E8A2366928634EC900E0258A /* RealmStorage.swift */,
+			);
+			path = PersistentStorage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +230,7 @@
 			files = (
 				E8A2366828634AF200E0258A /* Item.swift in Sources */,
 				E8A23658286342AF00E0258A /* ViewController.swift in Sources */,
+				E8A2366A28634EC900E0258A /* RealmStorage.swift in Sources */,
 				E8A23654286342AF00E0258A /* AppDelegate.swift in Sources */,
 				E8A23656286342AF00E0258A /* SceneDelegate.swift in Sources */,
 			);
