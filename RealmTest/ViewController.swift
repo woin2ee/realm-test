@@ -58,13 +58,3 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 }
-
-final class Item: Object {
-    @Persisted(primaryKey: true) var id: ObjectId
-    @Persisted var content: String
-    
-    convenience init(content: String) {
-        self.init()
-        self.content = content
-    }
-}

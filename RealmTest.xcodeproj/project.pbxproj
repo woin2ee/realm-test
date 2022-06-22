@@ -14,6 +14,7 @@
 		E8A2365B286342AF00E0258A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8A23659286342AF00E0258A /* Main.storyboard */; };
 		E8A2365D286342B100E0258A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8A2365C286342B100E0258A /* Assets.xcassets */; };
 		E8A23660286342B100E0258A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8A2365E286342B100E0258A /* LaunchScreen.storyboard */; };
+		E8A2366828634AF200E0258A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A2366728634AF200E0258A /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E8A2365C286342B100E0258A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8A2365F286342B100E0258A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8A23661286342B100E0258A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8A2366728634AF200E0258A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,6 @@
 				6F956DEF82301328F0075009 /* Pods-RealmTest.debug.xcconfig */,
 				664D4D7B49CB9B83143E8865 /* Pods-RealmTest.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -88,6 +89,7 @@
 				E8A2365C286342B100E0258A /* Assets.xcassets */,
 				E8A2365E286342B100E0258A /* LaunchScreen.storyboard */,
 				E8A23661286342B100E0258A /* Info.plist */,
+				E8A2366728634AF200E0258A /* Item.swift */,
 			);
 			path = RealmTest;
 			sourceTree = "<group>";
@@ -207,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8A2366828634AF200E0258A /* Item.swift in Sources */,
 				E8A23658286342AF00E0258A /* ViewController.swift in Sources */,
 				E8A23654286342AF00E0258A /* AppDelegate.swift in Sources */,
 				E8A23656286342AF00E0258A /* SceneDelegate.swift in Sources */,
